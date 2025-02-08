@@ -29,7 +29,9 @@ public class Timer : MonoBehaviour
         int milliseconds = Mathf.FloorToInt((elapsedTime * 100) % 100);
         TimerText.text = string.Format("{0}:{1:00}.{2:00}", minutes, seconds, milliseconds);
     }
-
+    /// <summary>
+    /// Function StartTimer() starts the timer
+    /// </summary>
     public void StartTimer()
     {
         if (!isRunning) // Prevents restarting if already running
@@ -38,6 +40,10 @@ public class Timer : MonoBehaviour
             Debug.Log("Timer Started!");
         }
     }
+
+    /// <summary>
+    /// Function StopTimer() stops the timer
+    /// </summary>
 
     public void StopTimer()
     {

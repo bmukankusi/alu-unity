@@ -2,13 +2,21 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-    public Transform player; // Assign Player in the Inspector
-    public Vector3 offset = new Vector3(0, 2, -5); // Camera offset from Player
-    public float rotationSpeed = 100f;
-    public bool requireRightClick = true; // Toggle free look or right-click drag
 
-    private float yaw = 0f;  // Rotation around Y-axis
-    private float pitch = 0f; // Rotation around X-axis
+    /// <summary>
+    /// Access the player <see cref="Transform"/> to follow
+    /// Toggle free look or right-click drag
+    /// Rotation speed around the player
+    /// Camera offset from the player
+    /// </summary>
+
+    public Transform player;
+    public Vector3 offset = new Vector3(0, 2, -5); 
+    public float rotationSpeed = 100f;
+    public bool requireRightClick = true; 
+
+    private float yaw = 0f;  
+    private float pitch = 0f; 
 
     private void Start()
     {

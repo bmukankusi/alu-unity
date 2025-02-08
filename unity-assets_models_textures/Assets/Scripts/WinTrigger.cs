@@ -3,7 +3,10 @@ using UnityEngine.UI;
 
 public class WinTrigger : MonoBehaviour
 {
-    public Text TimerText; // Assign in Inspector
+    /// <summary>
+    /// Access TimerText <see cref="GameObject"/>
+    /// </summary>
+    public Text TimerText; 
 
     private void OnTriggerEnter(Collider other)
     {
@@ -12,10 +15,10 @@ public class WinTrigger : MonoBehaviour
             Timer timer = other.GetComponent<Timer>();
             if (timer != null)
             {
-                timer.StopTimer(); // Stop the timer
+                timer.StopTimer(); 
 
                 // Update the text style
-                TimerText.fontSize = 65; // Increase font size
+                TimerText.fontSize = 60; // Increase font size
                 TimerText.color = Color.green; // Change color to green
 
                 Debug.Log("Player reached WinFlag! Timer stopped.");
