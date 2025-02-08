@@ -12591,6 +12591,22 @@ PrefabInstance:
     m_TransformParent: {fileID: 0}
     m_Modifications:
     - target: {fileID: 2225710039596142454, guid: b5d73a63fff327844af05681cfb0636d, type: 3}
+      propertyPath: m_Color.b
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2225710039596142454, guid: b5d73a63fff327844af05681cfb0636d, type: 3}
+      propertyPath: m_Color.g
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2225710039596142454, guid: b5d73a63fff327844af05681cfb0636d, type: 3}
+      propertyPath: m_Color.r
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2225710039596142454, guid: b5d73a63fff327844af05681cfb0636d, type: 3}
+      propertyPath: m_FontData.m_FontSize
+      value: 48
+      objectReference: {fileID: 0}
+    - target: {fileID: 2225710039596142454, guid: b5d73a63fff327844af05681cfb0636d, type: 3}
       propertyPath: m_FontData.m_Alignment
       value: 4
       objectReference: {fileID: 0}
