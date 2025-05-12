@@ -1,53 +1,48 @@
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
 public class Timer : MonoBehaviour
 {
-    public Text TimerText; // Assign in Inspector
+    public Text TimerText;
+    public Text FinalTime;
     private float elapsedTime = 0f;
-    private bool isRunning = false;
-
-    private void Start()
+    private bool isPlaying = false;
+    // Update is called once per frame
+    void Update()
     {
-        // Ensure the time starts at 0:00.00 but does NOT start counting
-        UpdateTimerDisplay();
-    }
-
-    private void Update()
-    {
-        if (isRunning)
+        if (isPlaying)
         {
             elapsedTime += Time.deltaTime;
-            UpdateTimerDisplay();
+            SetUI(elapsedTime);
         }
     }
 
-    private void UpdateTimerDisplay()
-    {
-        int minutes = Mathf.FloorToInt(elapsedTime / 60);
-        int seconds = Mathf.FloorToInt(elapsedTime % 60);
-        int milliseconds = Mathf.FloorToInt((elapsedTime * 100) % 100);
-        TimerText.text = string.Format("{0}:{1:00}.{2:00}", minutes, seconds, milliseconds);
-    }
-
-    /// <summary>
-    /// Function StartTimer() starts the timer
-    /// </summary>
     public void StartTimer()
     {
-        if (!isRunning) // Prevents restarting if already running
-        {
-            isRunning = true;
-            Debug.Log("Timer Started!");
-        }
+        isPlaying = true;
     }
-
-    /// <summary>
-    /// Function StopTimer() stops the timer
-    /// </summary>
 
     public void StopTimer()
     {
-        isRunning = false; // Stops the timer
+        isPlaying = false;
+        TimerText.color = Color.green;
+        TimerText.fontSize = 60;
+        Win();
+    }
+
+    void SetUI(float time)
+    {
+        int minutes = Mathf.FloorToInt(time / 60F);
+        int seconds = Mathf.FloorToInt(time % 60F);
+        int milliseconds = Mathf.FloorToInt((time * 100F) % 100F);
+
+        TimerText.text = string.Format("{0:0}:{1:00}.{2:00}", minutes, seconds, milliseconds);
+    }
+
+    public void Win()
+    {
+        FinalTime.text = TimerText.text;
     }
 }

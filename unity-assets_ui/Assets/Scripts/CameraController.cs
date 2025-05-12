@@ -2,21 +2,22 @@ using UnityEngine;
 
 public class CameraController : MonoBehaviour
 {
-
     /// <summary>
     /// Access the player <see cref="Transform"/> to follow
     /// Toggle free look or right-click drag
     /// Rotation speed around the player
     /// Camera offset from the player
+    /// Invert vertical camera movement
     /// </summary>
 
     public Transform player;
-    public Vector3 offset = new Vector3(0, 2, -5); 
+    public Vector3 offset = new Vector3(0, 2, -5);
     public float rotationSpeed = 100f;
-    public bool requireRightClick = true; 
+    public bool requireRightClick = true;
+    public bool isInverted = false; // ? Add this to toggle Y-axis inversion
 
-    private float yaw = 0f;  
-    private float pitch = 0f; 
+    private float yaw = 0f;
+    private float pitch = 0f;
 
     private void Start()
     {
@@ -34,6 +35,10 @@ public class CameraController : MonoBehaviour
         {
             float mouseX = Input.GetAxis("Mouse X") * rotationSpeed * Time.deltaTime;
             float mouseY = Input.GetAxis("Mouse Y") * rotationSpeed * Time.deltaTime;
+
+            // Invert Y axis if needed
+            if (isInverted)
+                mouseY = -mouseY;
 
             yaw += mouseX;
             pitch -= mouseY;
