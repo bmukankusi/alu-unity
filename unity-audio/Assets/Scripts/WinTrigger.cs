@@ -15,14 +15,4 @@ public class WinTrigger : MonoBehaviour
             timer.StopTimer();
         }
     }
-
-    //Stop background music on win
-    public void StopBackgroundMusic()
-    {
-        AudioSource backgroundMusic = GameObject.Find("BackgroundMusic").GetComponent<AudioSource>();
-        if (backgroundMusic != null)
-        {
-            backgroundMusic.Stop();
-        }
-    }
 }
