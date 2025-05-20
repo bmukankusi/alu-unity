@@ -307,6 +307,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   invertY: {fileID: 866093094}
+  masterMixer: {fileID: 24100000, guid: c4f18047d320959468632847bba5c200, type: 2}
+  bgmSlider: {fileID: 1366751372}
+  sfxSlider: {fileID: 558663199}
 --- !u!4 &199647835
 Transform:
   m_ObjectHideFlags: 0

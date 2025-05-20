@@ -1,12 +1,15 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.Audio;
 using UnityEngine.SceneManagement;
 
 public class PauseMenu : MonoBehaviour
 {
     public GameObject pauseCanvas;
     private bool isPaused = false;
+    public AudioMixerSnapshot normalSnapshot;
+    public AudioMixerSnapshot pausedSnapshot;
 
     // Update is called once per frame
     void Update()
@@ -30,6 +33,8 @@ public class PauseMenu : MonoBehaviour
         isPaused = true;
         pauseCanvas.SetActive(true);
         Time.timeScale = 0f;
+        //Snapshot pause
+        pausedSnapshot.TransitionTo(0.5f);
 
     }
 
@@ -38,6 +43,9 @@ public class PauseMenu : MonoBehaviour
         isPaused = false;
         pauseCanvas.SetActive(false);
         Time.timeScale = 1f;
+        //Snapshot normal
+        normalSnapshot.TransitionTo(0.5f);
+
     }
 
     public void Restart()
